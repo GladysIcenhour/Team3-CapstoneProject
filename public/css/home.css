@@ -1,18 +1,53 @@
 
 body, html {
-    background-color: white; 
-    
-  }
+    background-color: lightblue;    
+}
   
+.imgbox {
+    display: grid;
+}
   
-  .imgbox {
-      display: grid;
-  }
-  
-  .center-fit {
-      max-width: 50%;
-      max-height: 50vh;
-      margin: auto;
-  }
-          
-  
+.center-fit {
+    max-width: auto;
+    max-height: 40vh;
+    margin: auto;
+}
+
+/* Styling for GlucoCheck title */
+h1 {
+    color: rgb(7, 170, 219);
+    font-family: 'Italianno', cursive;
+    font-weight: 700;
+    text-align: center;
+    line-height: 10px;
+   
+}
+
+/* Not currently in use!*/
+/* Styling for GlucoCheck tagline...Be well, know your BGL! */
+h4 {
+    color: rgb(7, 170, 219);
+    font-family: 'Italianno', cursive;
+    font-weight: 700;
+    text-align: center;
+    line-height: 30px;
+   
+}
+
+.aspectwrapper {
+    display: inline-block; /* shrink to fit */
+    width: 100%;           /* whatever width you like */
+    position: relative;    /* so .content can use position: absolute */
+   
+ }
+ .aspectwrapper::after {
+    padding-top: 56.25%; /* percentage of containing block _width_ */
+    content: '';
+ }
+ .content {
+   position: relative;
+   top: 0; bottom: 0; right: 0; left: 0;  /* follow the parent's edges */
+   /*outline: thin dashed green;            just so you can see the box */
+ }
+ 
+

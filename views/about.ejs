@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GlucoCheck About</title>
+
+  <!-- CSS Stylesheets -->
+  
+  <link href="/bulma/css/bulma.css" rel="stylesheet" type="text/css" />
+  <link href="/css/about.css" rel="stylesheet" type="text/css" />
+
+  <!--Font family for title/heading-->
+  <link 
+  href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" 
+  rel="stylesheet"
+  /> 
+</head>
+
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+
+    <a class="navbar-item" href="/">
+      <h1><span style="font-size:2.1vw; color: rgb(7, 170, 219); ">GlucoCheck</span></h1>
+    </a>
+    
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+    
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-end" style="font-weight: 400; font-size: large; padding-right: 3%;">
+    <div class="navbar-start">
+     
+    
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Select a language
+        </a>
+
+        <div class="navbar-dropdown">
+
+
+
+          <a href="setLocale/en" class="navbar-item"><%= __('english') %></a>
+          <a href="setLocale/es" class="navbar-item"><%= __('spanish') %></a>
+          
+          
+          
+        </div>
+      </div>
+
+      <a href="/about" class="navbar-item">
+        About us
+      </a>
+
+
+      <a href="/faq" class="navbar-item">
+        FAQ
+      </a>
+
+    </div>
+  </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+  <br><br>
+  
+  <center>
+    
+  <div class ="box" style="box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0.3em 0.3em 1em rgba(0,0,0,0.3);">
+
+    
+      <br>
+      <br>
+      <h1><span style="font-size:3vw;">About</span></h1>
+      <br>
+
+      <p style="font-size:1vw; ">
+        Hi! We are Team3 and this is our capstone programming project.
+        <br>
+        <br>
+        Tasked with creating a simple, easy to use app to track blood-glucose, for our capstone programming project 
+        at Wake Technical Community College, we dove in to create the simplest, easiest tracker around. 
+        Many individuals still struggle with the use of technology. Our goal here was to create an 
+        application that functioned as simply as possible to reduce the barriers to these individuals.
+        GlucoCheck is free, simple and has no intrusive features.
+        Managing your blood-glucose levels is hard enough. Give GlucoCheck a try! Be well, know your BGL!
+
+      </p>
+  
+      <br><br><br>
+  
+  
+      <h1><span style="font-size:1.6vw;">Contact Us</span></h1>
+
+
+      <a href="mailto:GlucoHelp@outlook.com">GlucoHelp@outlook.com</a>
+      <br>
+      <br>
+      <a href="/">
+        <button class="button" style="height:30px;width:70px;"><%= __('back') %></button>
+      </a>
+
+      
+  </div>
+  
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <img style="padding: 15px 5px 10px 20px; position: sticky; left: -10px; bottom: 0;" src="/images/BloodDrop.png" width = "100" height = "40" alt = "Blood Drop Logo"/>
+
+  
+
+            
+        
+</body>
+
+
+</html>

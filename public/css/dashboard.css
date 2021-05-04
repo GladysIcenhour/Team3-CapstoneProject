@@ -1,83 +1,54 @@
 body, html {
-     margin: 0;
+    background-color: lightblue;    
+}
+  
+.imgbox {
+    display: grid;
+}
+  
+.center-fit {
+    max-width: auto;
+    max-height: 40vh;
+    margin: auto;
 }
 
-/* Navbar container */
-.navbar1 {
-    overflow: hidden;
-    background-color: #333;
-    font-family: Arial;
-    
-    
-}
-  
-/* Links inside the navbar */
-.navbar1 a {
-    float: left;
-    color: #f2f2f2;
+/* Styling for GlucoCheck title */
+h1 {
+    color: rgb(7, 170, 219);
+    font-family: 'Italianno', cursive;
+    font-weight: 700;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+    line-height: 10px;
+   
 }
-  
-/* The dropdown container */
-.dropdown1 {
-    float: right;
-    overflow: hidden;
+
+/* Not currently in use!*/
+/* Styling for GlucoCheck tagline...Be well, know your BGL! */
+h4 {
+    color: rgb(7, 170, 219);
+    font-family: 'Italianno', cursive;
+    font-weight: 700;
+    text-align: center;
+    line-height: 30px;
+   
 }
-  
-/* Dropdown button */
-.dropdown1 .dropbtn1 {
-    
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
-    
+
+
+.aspectwrapper {
+   display: inline-block; /* shrink to fit */
+   width: 100%;           /* whatever width you like */
+   position: relative;    /* so .content can use position: absolute */
 }
-  
-/* Add a red background color to navbar links on hover */
-.navbar1 a:hover, .dropdown1:hover .dropbtn1 {
-    background-color: black;
+.aspectwrapper::after {
+   padding-top: 56.25%; /* percentage of containing block _width_ */
+   display: block;
+   content: '';
 }
-  
-/* Dropdown content (hidden by default) */
-.dropdown-content1 {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 50px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    
-    
+.content {
+  position: relative;
+  top: 0; bottom: 0; right: 0; left: 0;  /* follow the parent's edges */
+  /*outline: thin dashed green;            just so you can see the box */
 }
-  
-/* Links inside the dropdown */
-.dropdown-content1 a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-  
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content1 a:hover {
-    background-color: #ddd;
-}
-  
-/* Show the dropdown menu on hover */
-.dropdown1:hover .dropdown-content1 {
-    display: block;
-    width: 100px;
-    right: 0;
-    
-}
+
+
 

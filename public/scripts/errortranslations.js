@@ -23,8 +23,9 @@
 */
 
 function translateregister(error) {
+    
 
-   
+  document.addEventListener('DOMContentLoaded', function () {
     var emailInput = document.getElementById('email');
     var usernameInput = document.getElementById('username');
     var passwordInput = document.getElementById('password');
@@ -57,12 +58,16 @@ function translateregister(error) {
     }
 
 
-    
-
+   })
 }
 
 function translatelogin(error){
     
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+   
     var usernameInput = document.getElementById('username');
     var passwordInput = document.getElementById('password');
 
@@ -99,6 +104,7 @@ function translatelogin(error){
         errorelement.innerHTML = "Password or username are incorrect.";
     }
     
+  })
 
 
 }

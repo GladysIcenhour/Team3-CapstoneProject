@@ -7,23 +7,90 @@
       name="viewport"
       content="width=device-width, initial-scale=1"
     />
+    <title>GlucoCheck Registration</title>
 
     <!-- CSS Stylesheet -->
     <link href="/bulma/css/bulma.css" rel="stylesheet" type="text/css" />
+    <link href="/css/register.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet"/>
 
     <!-- Scripts -->
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="scripts/formchecks.js"></script>
     <script src="scripts/errortranslations.js"></script>
+    <script src="scripts/showpassword.js"></script>
     <script> translateregister('<%- locals.error %>'); </script>
 
 
   </head>
 
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    
+    <div class="navbar-brand">
+      
+      <a class="navbar-item" href="/">
+        <h1><span style="font-size:2.1vw; color: rgb(7, 170, 219); ">GlucoCheck</span></h1>
+      </a>
+      
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-end" style="font-weight: 400; font-size: large; padding-right: 3%;">
+      <div class="navbar-start">
+      
+
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Select a language
+          </a>
+  
+          <div class="navbar-dropdown">
+
+
+
+            <a href="setLocale/en" class="navbar-item"><%= __('english') %></a>
+            <a href="setLocale/es" class="navbar-item"><%= __('spanish') %></a>
+            
+            
+            
+          </div>
+        </div>
+
+
+
+        <a href="/about" class="navbar-item">
+          About us
+        </a>
+
+        <a href="/faq" class="navbar-item">
+          FAQ
+        </a>
+
+      </div>
+    </div>
+
+  </nav>
+
+
   <body>
+    <center>
     <div class="content is-max-desktop">
-      <h1>Sign up form</h1>
-      <div class="container" style="width: 50%">
+      <br>
+      <br>
+
+
+      <div class="box" style="width: 50%; box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0.3em 0.3em 1em rgba(0,0,0,0.3); ">
+
+
+        <h1><%= __('signuptitle') %></h1>
+        <br>
 
         <form action="/register" method="POST" onsubmit="registration()"> 
 
@@ -65,20 +132,25 @@
 
           <p id = "errorage" style="color:red;"></p>
           
-          <label class="label" for="diagnosis-dropdown"><%= __('select_diagnosis') %>:</label>
+          <label class="label" style = "float:left" for="diagnosis-dropdown"><%= __('select_diagnosis') %>:</label> 
+          <br> 
+          <br>
 
-          <div class="select" id="diabeticdiv">
+          <div style="float:left;" class="select" id="diabeticdiv">
             <select name="diabetic" id="diabetic">
               <option></option>
               <option value="true"><%= __('diabetic') %></option>
               <option value="false"><%= __('non-diabetic') %></option>
             </select>
           </div>
+
+          <br>
+          <br>
           
           <p id = "errordiabetic" style="color:red;"></p>
           
           <p class="control has-icons-left">
-            <input class="input" type="text" name="username" id="username" placeholder="<%= __('username') %>"/>
+            <input class="input" type="text" name="username" id="username" autocomplete="off" data-lpignore="true" placeholder="<%= __('username') %>"/>
             <span class="icon is-left">
               <iconify-icon data-icon="mdi:rename-box"></iconify-icon>
             </span>
@@ -87,7 +159,7 @@
           <p id = "errorusername" style="color:red;"></p>
           
           <p class="control has-icons-left">
-            <input class="input" type="text" name="password" id="password" placeholder="<%= __('password') %>"/>
+            <input class="input" type="password" name="password" id="password" autocomplete="new-password" data-lpignore="true" placeholder="<%= __('password') %>"/>
             <span class="icon is-left">
               <iconify-icon data-icon="mdi:key-variant"></iconify-icon>
             </span>
@@ -95,14 +167,24 @@
 
           <p id = "errorpassword" style="color:red;"></p>
 
+          <label class="checkbox" style="float:left;">
+            <input  type="checkbox" onclick="start()"> Show Password
+          </label>
+          <br>
+          <br>
+          <button class="button is-danger is-rounded"><%= __('create_account') %></button> 
+
+          <br>
+          <br>
           
-          <button class="button is-primary is-rounded"><%= __('create_account') %></button> 
 
-          <br>
-          <br>
-
+      
           
         </form>
+
+        <a href="/login"><button class="button is-info is-light"><%= __('login') %></button></a>
+        <a href="/"><button class="button is-info is-light"><%= __('back') %></button></a>
+
       </div>
     </div>
 
@@ -110,8 +192,6 @@
 
 
 
-    <a href="/login"><button class="button"><%= __('login') %></button></a>
-    <a href="/"><button class="button"><%= __('back') %></button></a>
 
 
   

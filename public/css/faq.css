@@ -1,0 +1,35 @@
+body, html {
+    background-color: lightblue;    
+  }
+  
+  .imgbox {
+    display: grid;
+  }
+  
+  .center-fit {
+    max-width: 55%;
+    max-height: 40vh;
+    margin: auto;
+  }
+  
+  /* Styling for GlucoCheck title */
+  h1 {
+    color: rgb(7, 170, 219);
+    font-family: 'Italianno', cursive;
+    font-weight: 700;
+    text-align: center;
+    line-height: 10px;
+   
+  }
+  
+  /* Not currently in use!*/
+  /* Styling for GlucoCheck tagline...Be well, know your BGL! */
+  h4 {
+    color: rgb(7, 170, 219);
+    font-family: 'Italianno', cursive;
+    font-weight: 700;
+    text-align: center;
+    line-height: 30px;
+   
+  }
+  

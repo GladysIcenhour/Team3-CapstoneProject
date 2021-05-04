@@ -2,10 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>GlucoCheck Home</title>
 
-    <!-- CSS Stylesheet -->
+    <!-- CSS Stylesheets and Fonts -->
     <link href="/bulma/css/bulma.css" rel="stylesheet" type="text/css" />
     <link href="/css/home.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet"/>
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
     
 
@@ -13,78 +17,109 @@
 
 
 
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+
+      <a class="navbar-item" href="/">
+        <h1><span style="font-size:2.1vw; color: rgb(7, 170, 219); ">GlucoCheck</span></h1>
+      </a>
+      
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-end" style="font-weight: 400; font-size: large; padding-right: 3%;">
+      <div class="navbar-start">
+       
+      
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Select a language
+          </a>
+  
+          <div class="navbar-dropdown">
+
+
+
+            <a href="setLocale/en" class="navbar-item"><%= __('english') %></a>
+            <a href="setLocale/es" class="navbar-item"><%= __('spanish') %></a>
+            
+            
+            
+          </div>
+        </div>
+
+        <a href="/about" class="navbar-item">
+          About us
+        </a>
+
+
+        <a href="/faq" class="navbar-item">
+          FAQ
+        </a>
+
+      </div>
+    </div>
+
+  </nav>
+
+
+  
+  
+      
+
+
   <body>
-    <center>
-  
-  
-      <br>
-      <br>
-      <!--room for navbar-->
-      <br>
-      <div class="select">
-        <select id="language">
-          <option><%= __('english') %></option>
-          <option><%= __('spanish') %></option>
-        </select>
-      </div>
-      
-  
-      <div class="imgbox">
-        <img class="center-fit" src='/images/BloodDrop.png'>
-      </div>
 
-      <br>
-      <br>
-  
-  
-      <div class="container" style="position:fixed;left:80px;top:350px;right:80px;"></div>
-      <div class="content is-max-desktop">
-      
-      <a href="/register">
-        <button class="button is-primary is-rounded" style="height:40px;width:105px;"><%= __('signup') %></button>
-      </a>
+    <br>
+    <br>
+    <br>
+
+    <div class="aspectwrapper" >
+
+      <div class="content" style="float:left; width: 45%; ">
+        
+        <br><br><br><br><br><br>
+        <h4><span style="font-size:3.5vw; padding-left: 15%;  color: rgb(7, 170, 219);">Be well, know your BGL!</span></h4>
+
+        <br>
+
+        <div  style="padding-left: 50%;">
+          
+          <a href="/register" >
+              <button class="button is-danger is-rounded" style="height:40px;width:105px;"><%= __('signup') %></button>
+          </a>
+          
+          
+          <a href="/login" style="padding-bottom:90%;" >
+              <button class="button is-danger is-rounded" style="height:40px;width:105px;"><%= __('login') %></button> 
+          </a>
+        </div>
+       
     
-      <a href="/login">
-        <button class="button is-primary is-rounded" style="height:40px;width:105px;"><%= __('login') %></button>
-      </a>
-
-  
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      
-      
-
-  
-      <div id="container">
-        <div id="footer">Not Copyrighted © 2021. </div>
       </div>
-  
 
-      
+      <div class="content" style="float:right; width:55%; ">
+        <div class="imgbox">
+          
+          <img class="center-fit" src='/images/BloodDrop.png' alt="Blood Drop Logo">
+          <h1><span style="font-size:4.5vw; color: rgb(7, 170, 219);">GlucoCheck</span></h1>
+
+          <div class="center-fit"  id="footer">Not Copyrighted © 2021. </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+   
   </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>

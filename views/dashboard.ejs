@@ -6,80 +6,211 @@
       name="viewport"
       content="width=device-width, initial-scale=1"
     />
+    <title>GlucoCheck Dashboard</title>
 
     <!-- Scripts -->
     <script src="/chart.js/dist/Chart.min.js"></script>
     <script src="/chartjs-plugin-annotation/chartjs-plugin-annotation.min.js"></script>
 
-
     <script src="/scripts/searchbar.js"></script>
     <script src="/scripts/formchecks.js"></script>
+    
 
     <script src="/scripts/dashboard.js"></script>
-    <script> main('<%- JSON.stringify(locals.data, null, 0) %>'); </script>
 
+    <script> 
+      graph('<%- JSON.stringify(locals.data, null, 0) %>'); 
+      notifications('<%- JSON.stringify(locals.data, null, 0) %>','<%- locals.firsttime %>');  
+    </script>
 
     
-
-    <!-- CSS Stylesheets -->
+  
+    <!-- CSS Stylesheets and Fonts -->
     <link href="/css/dashboard.css" rel="stylesheet"/>
     <link href="/bulma/css/bulma.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet"/>
+    
+    
 
     
-  
   </head>
+
+
+
+
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
   
-  <div class="navbar1">
-    
-    <div class="dropdown1">
+      <a class="navbar-item" href="/">
+        <h1><span style="font-size:2.1vw; color: rgb(7, 170, 219); ">GlucoCheck</span></h1>
+      </a>
       
-      <button class="dropbtn1" ><%- locals.username %> </button>
-      <div class="dropdown-content1">
-          <a href="/logout"><%= __('sign_out') %></a>
-          
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-end" style="font-weight: 400; font-size: large; padding-right: 3%;">
+      <div class="navbar-start">
+
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Select a language
+          </a>
+  
+          <div class="navbar-dropdown">
+  
+  
+  
+            <a href="setLocale/en" class="navbar-item"><%= __('english') %></a>
+            <a href="setLocale/es" class="navbar-item"><%= __('spanish') %></a>
+            
+            
+            
+          </div>
+        </div>
+  
+       
+  
+  
+        
+      
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <%- locals.username %>
+          </a>
+  
+          <div class="navbar-dropdown">
+  
+  
+            <a href="/logout"><%= __('sign_out') %></a>
+            
+            
+            
+            
+          </div>
+        </div>
+  
+        
+  
       </div>
     </div>
-  </div>
+  
+  </nav>
+  
+  
 
+
+
+
+
+
+
+          
+  
   <br>
+  
 
-  <body>
-    <div class="content is-max-desktop">
-      <div class="container" style="width: 50%">
+  <body onload="clock()">
 
-        <form action="/dashboard" method="POST" onsubmit="dashboard()">
+  
+    <div class="aspectwrapper" >
 
-          <input class="input" type="text" name="glucoselevel" placeholder="glucoselevel"/>
+      <div class="content" style="float:left; width: 40%; padding-left: 5%; ">
+
+        <form action="/dashboard" method="POST" onsubmit="dashboard()" >
+          <!-- Variables *these must be in the form*-->
+          <input type="hidden" name="carbs" id="hiddenInput" value="0" />
+
+          <br>
+          <h4 style="font-size: xx-large;"><%= __('create_task') %></h4>
+          <br>
+          <div id="txt" style="font-weight: bold;"> </div>
+          <br>
+          <br>
+          
+
+          <input class="input is-info" type="number" name="glucoselevel" id="glucoseInput" placeholder="<%= __('bloodsugar') %>" style="width: 30%" /> 
+          <br>
+          <br>
+          
+
+          <input class="input is-info" type="text" name='foodinput' id="foodinput" placeholder="<%= __('foodsearch') %>" style="width: 55%"/>
+          <div id = "match-list"></div>
+          <br> 
+
+          
+          
+          <div class="field is-grouped is-grouped-multiline" id = "dictionary"></div>
 
           <br>
           <br>
-          <button class="button" ><%= __('submit') %></button>
+          <br>
+          
+          
+          <button class="button is-danger is-rounded" ><%= __('submit') %></button>
         </form>
 
-        <canvas id="myChart"></canvas>
         <br>
-        
+
+      </div>
+
+      <div class="content" style="float:right; width:55%; ">
+
+        <div id="notification" style=" opacity: 0.8;"></div>
+        <br>
 
         
+        <canvas id="myChart" style="padding-right:5%;"></canvas>
 
-        <input class="input" type="text" name='foodinput' id="foodinput" placeholder="food search (work in progress)"/>
+        <br>
 
-        <div id = "match-list"></div>
-      
-
-       
-
-
+         
         
 
       </div>
+
+
+      <div class="content" style=" position: relative; float:left; width:100%; padding-left:5%; padding-right:6%;">
+
+        
+        <input id="dateCalendar"  class="input is-info"  type="date" style="float:right;  width:20%;"/>
+        <br>
+        <br>
+        <br>
+
+        <div id = "history-list" ></div>
+
+        
+      </div>
+
+      
+ 
+
     </div>
 
-    <img src="/images/BloodDrop.png" />
+
+   
+
+
+    
+
+    
+
+    
+    
+    <img style="padding: 15px 5px 10px 20px; position: sticky; left: -10px; bottom: 0;" src="/images/BloodDrop.png" width = "100" height = "40" alt = "Blood Drop Logo"/>
 
 
   </body>
-
+  
 
   
 

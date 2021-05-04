@@ -3,15 +3,15 @@ function dashboard() {
     var inputText = document.getElementById('glucoseInput');
     if (inputText.value.length == 0){
         event.preventDefault();
-        alert("Please enter a value");
+        alert("Please enter a blood sugar value.");
     }
     else if (isNaN(inputText.value)) {
         event.preventDefault();
-        alert("Please enter a number")
+        alert("Please enter a blood sugar value.")
     }
     else if (inputText.value < 0) {
         event.preventDefault();
-        alert("Number must be a postive number");
+        alert("Blood sugar value must be a postive number");
     }
 }
 

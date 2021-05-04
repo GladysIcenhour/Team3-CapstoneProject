@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - node
+before_install:
+  - npm install body-parser
+  - npm install bulma
+  - npm install chart.js  
+  - npm install chartjs-plugin-annotation
+  - npm install connect-flash
+  - npm install cookie-parser
+  - npm install ejs
+  - npm install express
+  - npm install express-session
+  - npm install i18n
+  - npm install jsonwebtoken
+  - npm install mongoose
+  - npm install nodemailer
+  - npm install passport
+  - npm install passport-local
+  - npm install passport-local-mongoose
+
+script: node index.js

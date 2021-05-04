@@ -9,10 +9,17 @@
 	"non-diabetic": "Non-Diabetic",
 	"select_diagnosis": "Select Diagnosis",
 	"english": "English",
-    "spanish": "Spanish",
+	"spanish": "Spanish",
 	"firstname": "First name",
-    "lastname": "Last name",
+	"lastname": "Last name",
 	"age": "Age",
-    "username": "Username",
-    "password": "Password"
+	"username": "Username",
+	"password": "Password",
+	"choose_language": "Choose Language",
+	"create_task": "Create a Task",
+	"F.A.Q": "F.A.Q",
+	"about": "About",
+	"signuptitle": "Sign Up Form",
+	"bloodsugar": "Blood sugar",
+	"foodsearch": "Food search"
 }

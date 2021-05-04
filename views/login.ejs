@@ -1,86 +1,184 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GlucoCheck Login</title>
 
-<head>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSS Stylesheets and Fonts -->
+    <link href="/bulma/css/bulma.css" rel="stylesheet" type="text/css" />
+    <link href="/css/login.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet"/>
+    
 
-  <!-- CSS Stylesheets -->
-  <link href="/css/login.css" rel="stylesheet" type="text/css" />
-  <link href="/bulma/css/bulma.css" rel="stylesheet" type="text/css" />
+    <!-- Scripts -->
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="scripts/formchecks.js"></script>
+    <script src="scripts/errortranslations.js"></script>
+    <script> translatelogin('<%- locals.error %>'); </script>
 
-  <!-- Scripts -->
-  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-  <script src="scripts/formchecks.js"></script>
-  <script src="scripts/errortranslations.js"></script>
-  <script> translatelogin('<%- locals.error %>'); </script>
+    
+  </head>
 
-</head>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    
+    <div class="navbar-brand">
+      
+      <a class="navbar-item" href="/">
+        <h1><span style="font-size:2.1vw; color: rgb(7, 170, 219); ">GlucoCheck</span></h1>
+      </a>
+      
 
-
-<body>
-  <center>
-
-
-    <br>
-    <br>
-    <!--room for navbar-->
-    <br>
-
-
-    <div class="imgbox">
-      <img class="center-fit" src='/images/BloodDrop.png'>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      
     </div>
+  
+    <div id="navbarBasicExample" class="navbar-end" style="font-weight: 400; font-size: large; padding-right: 3%;">
+      <div class="navbar-start">
+      
 
-    <div class="container" style="position:fixed;left:80px;top:350px;right:80px;"></div>
-    <div class="content is-max-desktop">
-
-      <div class="container" style="width: 24%;">
-        <form action="/login" method="POST" onsubmit="login()">
-          <p class="control has-icons-left">
-            <input class="input" type="text" name="username" id="username" placeholder="Username" />
-            <span class="icon is-left">
-              <iconify-icon data-icon="mdi:rename-box"></iconify-icon>
-            </span>
-          </p>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Select a language
+          </a>
+  
+          <div class="navbar-dropdown">
 
 
-          <br>
 
-          <p class="control has-icons-left">
-            <input class="input" type="password" name="password" id="password" placeholder="Password" />
-            <span class="icon is-left">
-              <iconify-icon data-icon="mdi:key-variant"></iconify-icon>
-            </span>
-          </p>
+            <a href="setLocale/en" class="navbar-item"><%= __('english') %></a>
+            <a href="setLocale/es" class="navbar-item"><%= __('spanish') %></a>
+            
+            
+            
+          </div>
+        </div>
 
-          <p id="error" style="color:red;"><%- locals.error %></p>
 
-          <br>
-          <br>
-          <button class="button is-primary is-rounded"><%= __('login') %></button>
-          
-        </form>
+
+        <a href="/about" class="navbar-item">
+          About us
+        </a>
+
+        <a href="/faq" class="navbar-item">
+          FAQ
+        </a>
+
       </div>
     </div>
 
-    <a href="/register">
-      <button class="button" style="height:30px;width:70px;"><%= __('signup') %></button>
-    </a>
+  </nav>
 
-    <a href="/">
-      <button class="button" style="height:30px;width:70px;"><%= __('back') %></button>
-    </a>
+  
+  
+
+  
 
 
+
+
+  <body>
 
     <br>
+    <br>
+    <br>
+   
+    <div class="aspectwrapper" >
 
-    <div id="container">
-      <div id="footer">Not Copyrighted © 2021. </div>
+      <div class="content" style="float:left; width: 45%; padding-left: 14%;  ">
+        
+      
+        <div class ="box" style="box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0.3em 0.3em 1em rgba(0,0,0,0.3); ">
+          <br>
+          
+          <h4 style="font-size:3vw">Login</h4>
+
+          <br><br>
+          
+          <center>
+          <div class="container" style="width: 40%;">
+            <form action="/login" method="POST" onsubmit="login()">
+              <p class="control has-icons-left">
+                <input class="input" type="text" name="username" id="username" placeholder="<%= __('username') %>" />
+                <span class="icon is-left">
+                  <iconify-icon data-icon="mdi:rename-box"></iconify-icon>
+                </span>
+              </p>
+              
+              <br>
+    
+              <p class="control has-icons-left">
+                <input class="input" type="password" name="password" id="password" placeholder="<%= __('password') %>" />
+                <span class="icon is-left">
+                  <iconify-icon data-icon="mdi:key-variant"></iconify-icon>
+                </span>
+              </p>
+    
+              <p id="error" style="color:red;"><%- locals.error %></p>
+              <br>
+              
+              <button class="button is-danger is-rounded"><%= __('login') %></button>
+
+
+            
+            </form>
+          </div>
+
+
+          <br><br>
+
+          
+          <a href="/register" >
+            <button class="button is-info is-light" style="height:30px;width:70px;"><%= __('signup') %></button>
+          </a>
+    
+          <a href="/">
+            <button class="button is-info is-light" style="height:30px;width:70px;"><%= __('back') %></button>
+          </a>
+
+         
+          <br><br><br><br><br><br>
+
+
+
+        </div>
+       
+    
+      </div>
+
+      <div class="content" style="float:right; width:55%; ">
+        <div class="imgbox " >
+          
+          <img class="center-fit" src='/images/BloodDrop.png' alt="Blood Drop Logo" >
+          <h1><span style="font-size:4.5vw; color: rgb(7, 170, 219);">GlucoCheck</span></h1>
+
+          <div class="center-fit"  id="footer">Not Copyrighted © 2021. </div>
+
+        </div>
+      </div>
+
+
     </div>
 
+      
+
+      
+
+      
+      
+
+      
+
+      
     
-</body>
+     
+
+      
+  </body>
 
 
 </html>
